@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍑 2027 岡山・神戶 6日輕鬆家族旅行</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFBF4;
+      --card: #FFFFFF;
+      --ink: #3E3A39;
+      --ink-soft: #6B6360;
+      --pink: #F7C5BE;
+      --pink-deep: #F2A497;
+      --yellow: #FCE4A6;
+      --yellow-deep: #F6D27A;
+      --blue: #CBE6F2;
+      --blue-deep: #A8D3E6;
+      --green: #D6EBC9;
+      --green-deep: #B9DAA5;
+      --purple: #E5D4F3;
+      --radius: 22px;
+      --border: 2.5px solid #3E3A39;
+      --shadow: 3px 3px 0px #3E3A39;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Huninn', -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg);
+      line-height: 1.7;
+      padding: 16px 14px 56px;
+    }
+
+    .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* 封面卡片 */
+    .cover {
+      background-color: var(--card);
+      border: var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 22px 18px 20px;
+      text-align: center;
+    }
+
+    .date-pill {
+      display: inline-block;
+      background-color: var(--yellow);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 4px 16px;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .cover h1 {
+      font-size: 1.7rem;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .cover .subtitle {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+
+    .cover-art {
+      background-color: var(--blue);
+      border: 2.5px solid var(--ink);
+      border-radius: 20px;
+      padding: 10px 8px 0;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .cover-art svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 快速導覽列 */
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .quick-nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.92rem;
+      background-color: var(--bg);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 5px 13px;
+      box-shadow: 2px 2px 0px var(--ink);
+      transition: transform 0.12s ease;
+    }
+
+    .quick-nav a:active {
+      transform: translateY(1px);
+    }
+
+    /* 區塊標題 */
+    .sec-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    .sec-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* 通用卡片 */
+    .card {
+      background-color: var(--card);
+      border: var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 16px;
+    }
+
+    /* 航班精簡卡片 */
+    .flight-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .flight-row {
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+
+    .flight-row.go { background-color: #FFF7E3; }
+    .flight-row.back { background-color: #EEF8FC; }
+
+    .flight-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 2px solid var(--ink);
+      font-size: 0.85rem;
+      background-color: var(--card);
+    }
+
+    .flight-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--card);
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+
+    .flight-pt .time {
+      font-size: 1.3rem;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .flight-pt .place {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    .flight-arrow {
+      font-size: 1.2rem;
+      padding: 0 6px;
+    }
+
+    /* 住宿精簡卡片 */
+    .hotel-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hotel-item {
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      padding: 13px 14px;
+      background-color: var(--bg);
+    }
+
+    .hotel-item h3 {
+      font-size: 1.08rem;
+      margin: 6px 0 4px;
+    }
+
+    .hotel-item p {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
+    .warn-note {
+      margin-top: 6px;
+      background-color: var(--pink);
+      border: 1.5px solid var(--ink);
+      border-radius: 10px;
+      padding: 5px 10px;
+      font-size: 0.86rem;
+      color: var(--ink);
+    }
+
+    /* 每日行程卡片（一頁展開，長輩滑動就能看懂） */
+    .day-card {
+      background-color: var(--card);
+      border: var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .day-header {
+      padding: 13px 16px;
+      border-bottom: 2.5px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .bg-yellow { background-color: var(--yellow); }
+    .bg-purple { background-color: var(--purple); }
+    .bg-green  { background-color: var(--green); }
+    .bg-pink   { background-color: var(--pink); }
+    .bg-blue   { background-color: var(--blue); }
+
+    .day-header .day-label {
+      font-size: 0.88rem;
+      background-color: var(--card);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 2px 11px;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .day-header h3 {
+      font-size: 1.18rem;
+      line-height: 1.3;
+    }
+
+    .day-emoji {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .day-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .step {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .step-badge {
+      flex-shrink: 0;
+      font-size: 0.82rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      border: 2px solid var(--ink);
+      background-color: var(--bg);
+      margin-top: 2px;
+      min-width: 52px;
+      text-align: center;
+    }
+
+    .step-content {
+      font-size: 0.96rem;
+      flex: 1;
+    }
+
+    .step-content strong {
+      font-size: 1.02rem;
+    }
+
+    .tea-box {
+      margin-top: 4px;
+      background-color: #F4FAEF;
+      border: 2px dashed var(--ink);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+    }
+
+    .tea-box .tea-title {
+      display: inline-block;
+      background-color: var(--green-deep);
+      border: 1.5px solid var(--ink);
+      border-radius: 8px;
+      padding: 1px 8px;
+      font-size: 0.84rem;
+      margin-bottom: 4px;
+    }
+
+    /* 小提醒與分享按鈕 */
+    .tips-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .tips-list li {
+      background-color: var(--bg);
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      padding: 9px 12px;
+    }
+
+    .action-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 150px;
+      font-family: inherit;
+      font-size: 0.98rem;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: var(--border);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      color: var(--ink);
+      background-color: var(--yellow-deep);
+      transition: transform 0.12s ease;
+    }
+
+    .btn.secondary {
+      background-color: var(--blue-deep);
+    }
+
+    .btn:active {
+      transform: translateY(2px);
+      box-shadow: 1px 1px 0px var(--ink);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background-color: var(--ink);
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      margin-top: 4px;
+    }
+
+    /* 溫柔小動畫（支援減少動態） */
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    .floaty { animation: floaty 3.2s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .floaty { animation: none; }
+    }
+
+    /* 列印 / 另存 PDF 友善 */
+    @media print {
+      body { background: #FFF; padding: 0; }
+      .quick-nav, .action-bar, .toast { display: none !important; }
+      .card, .day-card, .cover { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- 封面區 -->
+    <header class="cover">
+      <span class="date-pill">2027/04/16（五）— 04/21（三）｜6天5夜</span>
+      <h1>🍑 岡山・倉敷・神戶<br />春日輕鬆家族旅行</h1>
+      <p class="subtitle">每天只走 1 個輕鬆景點 × 賞紫藤花 × 抹茶蛋糕下午茶</p>
+
+      <!-- 可愛簡約手繪 SVG 封面圖 -->
+      <div class="cover-art" aria-hidden="true">
+        <svg viewBox="0 0 420 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 雲 -->
+          <g class="floaty">
+            <path d="M36 42C36 35 42 30 49 30C52 24 58 20 65 20C74 20 82 27 83 35C89 36 93 40 93 46C93 52 88 57 81 57H40C33 57 28 52 28 46C28 43 31 42 36 42Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+            <path d="M312 36C312 31 317 27 322 27C325 22 330 19 336 19C343 19 349 24 350 31C355 32 358 35 358 40C358 45 354 49 348 49H315C310 49 306 45 306 40C306 38 308 36 312 36Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+          </g>
+          <!-- 左：倉敷白壁小房子 -->
+          <rect x="28" y="82" width="74" height="44" rx="7" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+          <path d="M20 84L34 64H94L108 84H20Z" fill="#3E3A39" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="54" y="92" width="22" height="16" rx="4" fill="#FCE4A6" stroke="#3E3A39" stroke-width="2"/>
+          <!-- 中：微笑大桃子 -->
+          <g class="floaty">
+            <path d="M208 124C185 124 175 107 177 89C179 73 192 62 208 67C224 62 237 73 239 89C241 107 231 124 208 124Z" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+            <path d="M208 66C209 55 221 50 229 56C225 65 216 68 208 66Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.2"/>
+            <path d="M207 66C204 56 193 53 186 58C190 65 199 68 207 66Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.2"/>
+            <circle cx="198" cy="94" r="2.6" fill="#3E3A39"/>
+            <circle cx="218" cy="94" r="2.6" fill="#3E3A39"/>
+            <path d="M204 99C206 102 210 102 212 99" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round"/>
+          </g>
+          <!-- 右：神戶港塔 -->
+          <path d="M336 126L344 56H360L368 126H336Z" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M341 56L363 126M363 56L341 126" stroke="#3E3A39" stroke-width="2"/>
+          <rect x="338" y="42" width="28" height="14" rx="5" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+          <line x1="352" y1="26" x2="352" y2="42" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- 草地 -->
+          <rect x="0" y="125" width="420" height="32" fill="#B9DAA5"/>
+          <line x1="0" y1="125" x2="420" y2="125" stroke="#3E3A39" stroke-width="2.5"/>
+        </svg>
+      </div>
+
+      <nav class="quick-nav" aria-label="快速跳轉">
+        <a href="#sec-flight">✈️ 航班</a>
+        <a href="#sec-hotel">🏨 飯店</a>
+        <a href="#sec-days">🗓️ 6天行程</a>
+        <a href="#sec-tips">💡 小提醒</a>
+      </nav>
+    </header>
+
+    <!-- 航班資訊 -->
+    <section id="sec-flight" class="card">
+      <h2 class="sec-title"><span class="sec-icon bg-blue">✈️</span> 高雄小港直飛航班（5位成人）</h2>
+      <div class="flight-box">
+        <div class="flight-row go">
+          <div class="flight-head">
+            <strong>去程｜4/16（五）</strong>
+            <span class="tag">台灣虎航 IT262</span>
+          </div>
+          <div class="flight-main">
+            <div class="flight-pt">
+              <span class="time">12:40</span>
+              <span class="place">高雄小港</span>
+            </div>
+            <div class="flight-arrow">✈️ ➔</div>
+            <div class="flight-pt">
+              <span class="time">16:30</span>
+              <span class="place">岡山機場</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flight-row back">
+          <div class="flight-head">
+            <strong>回程｜4/21（三）</strong>
+            <span class="tag">星宇航空 JX361</span>
+          </div>
+          <div class="flight-main">
+            <div class="flight-pt">
+              <span class="time">13:15</span>
+              <span class="place">神戶機場</span>
+            </div>
+            <div class="flight-arrow">✈️ ➔</div>
+            <div class="flight-pt">
+              <span class="time">16:00</span>
+              <span class="place">高雄小港</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 住宿資訊 -->
+    <section id="sec-hotel" class="card">
+      <h2 class="sec-title"><span class="sec-icon bg-yellow">🏨</span> 住宿安排（整趟只換 1 次飯店）</h2>
+      <div class="hotel-list">
+        <div class="hotel-item">
+          <span class="tag bg-yellow">前 3 晚｜4/16（五）— 4/19（一）</span>
+          <h3>岡山站周邊 或 倉敷站周邊（挑選確認中）</h3>
+          <p>以離車站近、衛浴乾濕分離、長輩出入方便為優先。</p>
+        </div>
+
+        <div class="hotel-item">
+          <span class="tag bg-blue">後 2 晚｜4/19（一）— 4/21（三）✅ 已預訂</span>
+          <h3>神戶三宮大和Roynet飯店 PREMIER</h3>
+          <p>📍 兵庫県神戸市中央区三宮町 1-2-2（三宮站步行約 7 分鐘）<br />
+             🕒 14:00 入住 ／ 11:00 退房（2F 櫃檯可免費寄放行李）</p>
+          <div class="warn-note">⚠️ 提醒：神戶三宮有兩間大和Roynet，我們住的是 <strong>PREMIER 新館</strong>，不要走錯囉！</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 天行程一覽 -->
+    <section id="sec-days" style="display:flex; flex-direction:column; gap:16px;">
+      <h2 class="sec-title" style="margin-bottom:0;"><span class="sec-icon bg-pink">🗓️</span> 每日輕鬆行程表</h2>
+
+      <!-- Day 1 -->
+      <article class="day-card">
+        <div class="day-header bg-yellow">
+          <div>
+            <span class="day-label">Day 1｜4/16（五）</span>
+            <h3>抵達岡山・輕鬆吃晚餐</h3>
+          </div>
+          <span class="day-emoji">🚌</span>
+        </div>
+        <div class="day-body">
+          <div class="step">
+            <span class="step-badge">傍晚</span>
+            <div class="step-content"><strong>16:30 抵達岡山機場</strong>，搭直達巴士進市區飯店放行李休息。</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">晚上</span>
+            <div class="step-content">車站旁<strong>永旺夢樂城美食街</strong>輕鬆吃晚餐，早點休息養體力！</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 2 -->
+      <article class="day-card">
+        <div class="day-header bg-purple">
+          <div>
+            <span class="day-label">Day 2｜4/17（六）</span>
+            <h3>倉敷美觀・千年紫藤＆遊船</h3>
+          </div>
+          <span class="day-emoji">🌸</span>
+        </div>
+        <div class="day-body">
+          <div class="step">
+            <span class="step-badge">上午</span>
+            <div class="step-content">漫步江戶白壁<strong>倉敷美觀地區</strong>、體驗<strong>倉敷川遊船</strong>（坐船免走路！）、<strong>阿智神社</strong>賞 4 月千年紫藤花，並逛可愛的<strong>拉拉熊單寧屋</strong>。</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">下午</span>
+            <div class="step-content">過天橋至<strong>三井 OUTLET 倉敷</strong>吹冷氣逛街。</div>
+          </div>
+          <div class="tea-box">
+            <span class="tea-title">🍵 特色點心＆午茶</span><br />
+            美觀老街吃<strong>現烤醬油團子（にこり）</strong>或<strong>水果聖代（くらしき桃子）</strong>；下午在 Outlet 旁 <strong>nana's green tea</strong> 喝宇治抹茶休息！
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 3 -->
+      <article class="day-card">
+        <div class="day-header bg-green">
+          <div>
+            <span class="day-label">Day 3｜4/18（日）</span>
+            <h3>岡山後樂園＆岡山城散步</h3>
+          </div>
+          <span class="day-emoji">🏯</span>
+        </div>
+        <div class="day-body">
+          <div class="step">
+            <span class="step-badge">上午</span>
+            <div class="step-content">搭計程車直達日本三大名園<strong>岡山後樂園</strong>（全平坦草坪好走），再走過月見橋參觀漆黑壯觀的<strong>岡山城</strong>（城內有電梯免爬樓梯！）。</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">下午</span>
+            <div class="step-content">回車站連通的<strong>永旺夢樂城岡山</strong>吹冷氣逛街（有迪士尼、三麗鷗與日系服飾）。</div>
+          </div>
+          <div class="tea-box">
+            <span class="tea-title">🍵 特色點心＆午茶</span><br />
+            永旺 2F <strong>nana's green tea</strong> 抹茶起司蛋糕 ＋ 1F <strong>OHAGI3</strong> 手作日式烤團子＆大福。
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 4 -->
+      <article class="day-card">
+        <div class="day-header bg-pink">
+          <div>
+            <span class="day-label">Day 4｜4/19（一）</span>
+            <h3>姬路城與好古園賞花 ➔ 神戶</h3>
+          </div>
+          <span class="day-emoji">🍰</span>
+        </div>
+        <div class="day-body">
+          <div class="step">
+            <span class="step-badge">上午</span>
+            <div class="step-content">退房搭新幹線至姬路（行李寄放車站），在平坦的<strong>姬路城三之丸廣場</strong>與雪白名城合影（免爬陡梯），接著散步緊鄰的日式庭園<strong>好古園</strong>賞紫藤花、杜鵑與牡丹！</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">下午</span>
+            <div class="step-content">搭車入住<strong>神戶三宮大和Roynet飯店 PREMIER</strong>，先回房間午休。</div>
+          </div>
+          <div class="tea-box">
+            <span class="tea-title">🍰 特色午茶＆宵夜蛋糕</span><br />
+            三宮老字號<strong>宇治園</strong>或<strong>文の助茶屋</strong>吃抹茶蕨餅；晚上外帶超人氣 <strong>HARBS 水果千層蛋糕</strong>回飯店享用！
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 5 -->
+      <article class="day-card">
+        <div class="day-header bg-blue">
+          <div>
+            <span class="day-label">Day 5｜4/20（二）</span>
+            <h3>神戶神社賞花＆港灣悠閒午茶</h3>
+          </div>
+          <span class="day-emoji">⛩️</span>
+        </div>
+        <div class="day-body">
+          <div class="step">
+            <span class="step-badge">上午</span>
+            <div class="step-content">輕鬆景點三選一：<strong>湊川神社</strong>（全平地參拜）、<strong>相樂園</strong>（4月杜鵑花祭），或<strong>中山寺</strong>（賞白藤、有手扶梯）。</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">下午</span>
+            <div class="step-content">前往<strong>神戶港塔＆美利堅公園</strong>看海散步，或回飯店旁<strong>三宮中心街</strong>輕鬆逛街（因港邊 MOSAIC 館 2027 年整修暫停，改排更舒適的港塔與三宮動線）。</div>
+          </div>
+          <div class="tea-box">
+            <span class="tea-title">🍰 特色午茶＆第二晚蛋糕</span><br />
+            神戶港塔旋轉咖啡廳或 <strong>à la campagne 三宮店</strong>水果塔；傍晚於 Mint神戶 2F 再外帶一次 <strong>HARBS 蛋糕</strong>回房吃！
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 6 -->
+      <article class="day-card">
+        <div class="day-header bg-yellow">
+          <div>
+            <span class="day-label">Day 6｜4/21（三）</span>
+            <h3>悠閒早餐 ➔ 下午 4 點平安回家</h3>
+          </div>
+          <span class="day-emoji">✈️</span>
+        </div>
+        <div class="day-body">
+          <div class="step">
+            <span class="step-badge">上午</span>
+            <div class="step-content">睡飽享用早餐退房，約 <strong>10:45</strong> 從三宮搭單軌電車（18 分鐘、有電梯）輕鬆直達神戶機場。</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">下午</span>
+            <div class="step-content"><strong>13:15 星宇航空起飛 ➔ 16:00 返抵高雄小港</strong>，天還沒黑就回到家囉！</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 貼心小提醒 -->
+    <section id="sec-tips" class="card">
+      <h2 class="sec-title"><span class="sec-icon bg-green">💡</span> 家族出遊貼心小提醒</h2>
+      <ul class="tips-list">
+        <li>👟 <strong>輕鬆步調</strong>：每天上午只排 1 個主景點，短程多搭計程車，下午都在室內商場或茶屋吹冷氣吃甜點，不用怕走到腳痠。</li>
+        <li>🧥 <strong>4 月中旬穿搭</strong>：白天天氣約 16°C～22°C 很舒服，早晚微涼，建議洋蔥式穿搭帶件防風薄外套。</li>
+        <li>🛂 <strong>隨身必帶</strong>：護照正本（逛街免稅必備）與一雙好走的球鞋。</li>
+      </ul>
+    </section>
+
+    <!-- 分享與列印按鈕 -->
+    <div class="action-bar">
+      <button type="button" class="btn" id="copyLineBtn">📋 複製精簡文字（貼 LINE 群組）</button>
+      <button type="button" class="btn secondary" onclick="window.print()">🖨️ 列印 ／ 存成 PDF</button>
+    </div>
+
+    <footer>
+      2027 岡山・神戶 6日家族旅行小手冊｜祝大家玩得開心 🍑✨
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">已複製！可直接貼到 LINE 群組囉 🎉</div>
+
+  <script>
+    const lineSummary = `🍑【2027 岡山・神戶 6日輕鬆家族旅行】
+📅 日期：2027/04/16（五）～ 04/21（三）
+
+✈️ 航班（高雄小港雙點進出）
+・去程 4/16（五）虎航 IT262｜12:40 高雄 ➔ 16:30 岡山
+・回程 4/21（三）星宇 JX361｜13:15 神戶 ➔ 16:00 高雄
+
+🏨 住宿（只換1次飯店）
+・4/16–19（3晚）：岡山站／倉敷站周邊（確認中）
+・4/19–21（2晚）：神戶三宮大和Roynet飯店 PREMIER（已訂）
+
+🗓️ 每日輕鬆行程（每天1景點＋特色下午茶）
+・Day 1（4/16 五）：抵達岡山 ➔ 巴士進飯店、車站旁吃晚餐
+・Day 2（4/17 六）：倉敷美觀地區遊船、阿智神社賞紫藤花、拉拉熊單寧屋 ➔ 下午倉敷 Outlet 喝抹茶午茶
+・Day 3（4/18 日）：岡山後樂園、岡山城（有電梯）➔ 下午永旺夢樂城吹冷氣逛街＆抹茶烤團子午茶
+・Day 4（4/19 一）：姬路城合影＋好古園賞紫藤杜鵑 ➔ 入住神戶三宮 ➔ 晚上外帶 HARBS 蛋糕回房吃
+・Day 5（4/20 二）：湊川神社／相樂園杜鵑花／中山寺白藤（擇一）➔ 神戶港看海或三宮水果塔午茶 ➔ 第二晚外帶 HARBS 蛋糕
+・Day 6（4/21 三）：悠閒早餐 ➔ 搭單軌去神戶機場 ➔ 16:00 平安回到高雄小港！`;
+
+    document.getElementById("copyLineBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(lineSummary);
+        showToast("已複製！可直接貼到 LINE 群組囉 🎉");
+      } catch (err) {
+        const ta = document.createElement("textarea");
+        ta.value = lineSummary;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast("已複製！可直接貼到 LINE 群組囉 🎉");
+      }
+    });
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2600);
+    }
+  </script>
+</body>
+</html>
