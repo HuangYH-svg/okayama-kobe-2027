@@ -49,7 +49,7 @@
     }
 
     .wrap {
-      max-width: 560px;
+      max-width: 580px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -112,12 +112,18 @@
     .quick-nav a {
       text-decoration: none;
       color: var(--ink);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       background-color: var(--bg);
       border: 2px solid var(--ink);
       border-radius: 999px;
-      padding: 5px 13px;
+      padding: 5px 12px;
       box-shadow: 2px 2px 0px var(--ink);
+      transition: transform 0.12s ease, background-color 0.12s ease;
+    }
+
+    .quick-nav a:hover {
+      background-color: var(--yellow);
+      transform: translateY(-1px);
     }
 
     .sec-title {
@@ -179,7 +185,7 @@
       padding: 2px 10px;
       border-radius: 999px;
       border: 2px solid var(--ink);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       background-color: var(--card);
     }
 
@@ -223,14 +229,44 @@
       background-color: var(--bg);
     }
 
+    .hotel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0 4px;
+    }
+
     .hotel-item h3 {
       font-size: 1.08rem;
-      margin: 6px 0 4px;
+      margin: 0;
     }
 
     .hotel-item p {
       font-size: 0.92rem;
       color: var(--ink-soft);
+    }
+
+    .mini-map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.8rem;
+      color: var(--ink);
+      text-decoration: none;
+      background-color: var(--card);
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      padding: 2px 10px;
+      box-shadow: 1.5px 1.5px 0px var(--ink);
+      transition: transform 0.12s ease, background-color 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .mini-map-btn:hover {
+      background-color: var(--blue);
+      transform: translateY(-1px);
     }
 
     .warn-note {
@@ -277,7 +313,7 @@
     }
 
     .day-header h3 {
-      font-size: 1.18rem;
+      font-size: 1.16rem;
       line-height: 1.3;
     }
 
@@ -317,7 +353,7 @@
     }
 
     .step-content strong {
-      font-size: 1.02rem;
+      font-size: 1.01rem;
     }
 
     .tea-box {
@@ -355,13 +391,13 @@
       border-radius: 8px;
       padding: 1px 8px;
       font-size: 0.84rem;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .shop-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 6px;
       margin-top: 3px;
     }
 
@@ -387,6 +423,15 @@
     a.shop-pill:active {
       background-color: var(--blue);
       transform: translateY(-1px);
+    }
+
+    .mall-chip {
+      font-size: 0.72rem;
+      background-color: var(--yellow);
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      padding: 0 6px;
+      line-height: 1.45;
     }
 
     .map-pin {
@@ -486,7 +531,7 @@
     <header class="cover">
       <span class="date-pill">2027/04/16（五）— 04/21（三）｜6天5夜</span>
       <h1>🍑 倉敷・岡山・神戶<br />春日輕鬆家族旅行</h1>
-      <p class="subtitle">每天只走 1 個輕鬆景點 × 賞紫藤花 × 抹茶蛋糕＆藥妝採買</p>
+      <p class="subtitle">景點 × 紫藤花 × 蛋糕 × 藥妝 × 拉拉熊＆日牌</p>
 
       <div class="cover-art" aria-hidden="true">
         <svg viewBox="0 0 420 155" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -566,31 +611,37 @@
 
     <!-- 已確認住宿資訊 -->
     <section id="sec-hotel" class="card">
-      <h2 class="sec-title"><span class="sec-icon bg-yellow">🏨</span> 已確認住宿（整趟只換 1 次飯店）</h2>
+      <h2 class="sec-title"><span class="sec-icon bg-yellow">🏨</span> 已確認住宿（共2間）</h2>
       <div class="hotel-list">
         <div class="hotel-item">
-          <span class="tag bg-yellow">前 3 晚｜4/16（五）— 4/19（一）✅ 已預訂</span>
-          <h3>和奏Kurashiki（WAKANA KURASHIKI）</h3>
+          <span class="tag bg-yellow">前 3 晚｜4/16（五）— 4/19（一）✅ 已預訂可免費更改</span>
+          <div class="hotel-head">
+            <h3>和奏Kurashiki（WAKANA KURASHIKI）</h3>
+            <a class="mini-map-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%92%8C%E5%A5%8FKURASHIKI&query_place_id=ChIJsb_icxRXUTURwkyKpiiAWRs" target="_blank" rel="noopener noreferrer">📍 Google Maps</a>
+          </div>
           <p>📍 岡山縣倉敷市阿知 1 丁目 15−19（JR 倉敷站步行約 4 分鐘，緊鄰美觀地區）<br />
              🛏️ 2 間獨立公寓套房（套房 2 位 ＋ 行政套房 3 位，共 5 位成人）<br />
              🕒 15:00 入住 ／ 10:00 退房</p>
-          <div class="warn-note">📱 <strong>提醒：</strong>無駐點櫃檯，需先填線上資料表，抵達時於大廳平板輸入代碼辦理自助入住。</div>
+          <div class="warn-note">📱 <strong>提醒：</strong>無駐點櫃檯，出發前須填線上資料表，抵達時於 1F 大廳平板輸入代碼並視訊核對辦理自助入住（無行李寄放服務）。</div>
         </div>
 
         <div class="hotel-item">
-          <span class="tag bg-blue">後 2 晚｜4/19（一）— 4/21（三）✅ 已預訂</span>
-          <h3>神戶三宮大和Roynet飯店 PREMIER</h3>
-          <p>📍 兵庫県神戸市中央区三宮町 1-2-2（三宮站步行約 7 分鐘）<br />
+          <span class="tag bg-blue">後 2 晚｜4/19（一）— 4/21（三）✅ 已預訂可免費更改</span>
+          <div class="hotel-head">
+            <h3>神戶三宮大和Roynet飯店 PREMIER</h3>
+            <a class="mini-map-btn" href="https://www.google.com/maps/search/?api=1&query=Daiwa%20Roynet%20Hotel%20Kobe%20Sannomiya%20Premier&query_place_id=ChIJi9evAb-PAGARt9NglKdYQXM" target="_blank" rel="noopener noreferrer">📍 Google Maps</a>
+          </div>
+          <p>📍 兵庫県神戸市中央区三宮町 1-2-2（JR 三宮站步行約 7 分鐘）<br />
              🛏️ 2 間禁菸房（豪華特大雙人床房 ＋ 中等雙床房，共 5 位成人）<br />
              🕒 14:00 入住 ／ 11:00 退房（2F 櫃檯可免費寄放行李）</p>
-          <div class="warn-note">⚠️ <strong>提醒：</strong>神戶三宮有兩間大和Roynet，我們住的是 <strong>PREMIER 新館</strong>，不要走錯囉！</div>
+          <div class="warn-note">⚠️ <strong>提醒：</strong>神戶三宮有兩間大和Roynet，我們住的是 <strong>PREMIER 新館</strong>（三宮町 1-2-2），不要走錯囉！</div>
         </div>
       </div>
     </section>
 
     <!-- 6 天行程一覽 -->
     <section id="sec-days" style="display:flex; flex-direction:column; gap:16px;">
-      <h2 class="sec-title" style="margin-bottom:0;"><span class="sec-icon bg-pink">🗓️</span> 每日輕鬆行程表</h2>
+      <h2 class="sec-title" style="margin-bottom:0;"><span class="sec-icon bg-pink">🗓️</span> 行程表</h2>
 
       <!-- Day 1 -->
       <article class="day-card">
@@ -604,16 +655,16 @@
         <div class="day-body">
           <div class="step">
             <span class="step-badge">傍晚</span>
-            <div class="step-content"><strong>16:30 抵達岡山機場</strong>，搭巴士至倉敷站（或岡山站轉 JR），步行 4 分鐘入住「和奏Kurashiki」。</div>
+            <div class="step-content"><strong>16:30 抵達岡山機場</strong>，搭直達巴士至倉敷站（或岡山站轉 JR），步行 4 分鐘入住「和奏Kurashiki」。</div>
           </div>
           <div class="step">
             <span class="step-badge">晚上</span>
-            <div class="step-content">倉敷站旁 <strong>Ario 美食街</strong>輕鬆吃晚餐，早點休息養體力！</div>
+            <div class="step-content">倉敷站旁 <strong>Ario 美食街</strong>輕鬆吃晚餐，關店前稍微逛！</div>
           </div>
           <div class="shop-box">
             <span class="shop-title">🎯 待逛清單</span>
             <div class="shop-pills">
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Ario%20%E5%80%89%E6%95%B7&query_place_id=ChIJ97OuT0NWUTURqjHNhfKaJZw" target="_blank" rel="noopener noreferrer">💊 松本清 Ario 倉敷店 1F <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Ario%20%E5%80%89%E6%95%B7&query_place_id=ChIJ97OuT0NWUTURqjHNhfKaJZw" target="_blank" rel="noopener noreferrer">💊 松本清 Ario 倉敷店 1F <span class="mall-chip">Ario 倉敷</span> <span class="map-pin">📍</span></a>
             </div>
           </div>
         </div>
@@ -631,22 +682,23 @@
         <div class="day-body">
           <div class="step">
             <span class="step-badge">上午</span>
-            <div class="step-content">從住宿走路 2 分鐘即達<strong>倉敷美觀地區</strong>！體驗<strong>倉敷川遊船</strong>（坐船免走路）、<strong>阿智神社</strong>賞 4 月千年紫藤花，並逛<strong>拉拉熊單寧屋</strong>。</div>
+            <div class="step-content">從住宿走路 2 分鐘即達<strong>倉敷美觀地區</strong>！體驗<strong>倉敷川遊船</strong>（9 點於倉敷館觀光案內所預約）、<strong>阿智神社</strong>賞 4 月千年紫藤花，逛<strong>拉拉熊單寧屋、老街、甜點伴手禮（橘香堂）</strong>。</div>
           </div>
           <div class="step">
             <span class="step-badge">下午</span>
-            <div class="step-content">過天橋至<strong>三井 OUTLET 倉敷</strong>吹冷氣逛街（累了隨時可走回公寓午休）。</div>
+            <div class="step-content">至<strong>三井 OUTLET 倉敷</strong>吹冷氣逛街（離飯店近，也可隨時回去休息）。</div>
           </div>
           <div class="tea-box">
             <span class="tea-title">🍵 特色點心＆午茶</span><br />
-            美觀老街吃<strong>現烤醬油團子（にこり）</strong>或<strong>水果聖代（くらしき桃子）</strong>；下午在 Outlet 旁 <strong>nana's green tea</strong> 喝宇治抹茶！
+            美觀老街吃<strong>現烤醬油團子、紅豆蛋餃點心</strong>或<strong>聖代</strong>；橘香堂買群雀餅伴手禮。
           </div>
           <div class="shop-box">
             <span class="shop-title">🎯 待逛清單</span>
             <div class="shop-pills">
               <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Rilakkuma%20%26%20Sumikko%20Gurashi%20Denim%20House%20Kurashiki&query_place_id=ChIJm56SABNXUTURw27-6DvNQjs" target="_blank" rel="noopener noreferrer">🐻 拉拉熊單寧屋 <span class="map-pin">📍</span></a>
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BA%95OUTLET%E5%80%89%E6%95%B7&query_place_id=ChIJc7EQr1xWUTURZ0IX8YyTBjQ" target="_blank" rel="noopener noreferrer">👟 Clarks Outlet 2F <span class="map-pin">📍</span></a>
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Ario%20%E5%80%89%E6%95%B7&query_place_id=ChIJ97OuT0NWUTURqjHNhfKaJZw" target="_blank" rel="noopener noreferrer">💊 松本清 Ario 倉敷 1F <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Kikk%C5%8Dd%C5%8D&query_place_id=ChIJgzhprkdWUTURYUKrr0-ZFQU" target="_blank" rel="noopener noreferrer">🍬 橘香堂（美觀本店） <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BA%95OUTLET%E5%80%89%E6%95%B7&query_place_id=ChIJc7EQr1xWUTURZ0IX8YyTBjQ" target="_blank" rel="noopener noreferrer">👟 Clarks Outlet 2F <span class="mall-chip">三井 OUTLET 倉敷</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Ario%20%E5%80%89%E6%95%B7&query_place_id=ChIJ97OuT0NWUTURqjHNhfKaJZw" target="_blank" rel="noopener noreferrer">💊 松本清 Ario 倉敷 1F <span class="mall-chip">Ario 倉敷</span> <span class="map-pin">📍</span></a>
             </div>
           </div>
         </div>
@@ -664,11 +716,11 @@
         <div class="day-body">
           <div class="step">
             <span class="step-badge">上午</span>
-            <div class="step-content">搭 JR 至岡山站轉計程車直達<strong>岡山城</strong>（城內有電梯免爬樓梯！），在月見橋畔與漆黑烏城合影。</div>
+            <div class="step-content">搭 JR 至岡山站轉計程車直達<strong>岡山城</strong>（城內有電梯！），在月見橋畔與漆黑烏城合影。</div>
           </div>
           <div class="step">
             <span class="step-badge">下午</span>
-            <div class="step-content">回車站連通的<strong>永旺夢樂城岡山</strong>與站前商圈吹冷氣逛街。</div>
+            <div class="step-content">回車站連通的<strong>永旺夢樂城岡山</strong>與站前商圈（岡山一番街、表町）逛街採買。</div>
           </div>
           <div class="tea-box">
             <span class="tea-title">🍵 特色點心＆午茶</span><br />
@@ -679,8 +731,9 @@
             <div class="shop-pills">
               <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Bic%20Camera%20%E5%B2%A1%E5%B1%B1%E7%AB%99%E5%89%8D%E5%BA%97&query_place_id=ChIJURFlCUwGVDURegSIB8cZxxY" target="_blank" rel="noopener noreferrer">📷 BIC CAMERA 岡山站前店 <span class="map-pin">📍</span></a>
               <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E5%94%90%E5%90%89%E8%A8%B6%E5%BE%B7%20%E5%B2%A1%E5%B1%B1%E7%AB%99%E5%89%8D%E5%BA%97&query_place_id=ChIJsfBHgkwGVDUR6_wcGnpjrU4" target="_blank" rel="noopener noreferrer">🐧 唐吉訶德 Donki 岡山站前店 <span class="map-pin">📍</span></a>
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E6%B0%B8%E6%97%BA%E5%A4%A2%E6%A8%82%E5%9F%8E%20%E5%B2%A1%E5%B1%B1&query_place_id=ChIJkyqZELMHVDUREhwbsCvO-I0" target="_blank" rel="noopener noreferrer">💊 永旺 WELCIA / 站前松本清・大國藥妝 <span class="map-pin">📍</span></a>
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E6%B0%B8%E6%97%BA%E5%A4%A2%E6%A8%82%E5%9F%8E%20%E5%B2%A1%E5%B1%B1&query_place_id=ChIJkyqZELMHVDUREhwbsCvO-I0" target="_blank" rel="noopener noreferrer">🎀 Disney / Sanrio / 日牌服飾 <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E6%B0%B8%E6%97%BA%E5%A4%A2%E6%A8%82%E5%9F%8E%20%E5%B2%A1%E5%B1%B1&query_place_id=ChIJkyqZELMHVDUREhwbsCvO-I0" target="_blank" rel="noopener noreferrer">🎀 RAGEBLUE / Disney / Sanrio / WELCIA <span class="mall-chip">永旺夢樂城 岡山</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=UNITED%20ARROWS%20green%20label%20relaxing&query_place_id=ChIJhz96TUwGVDURb4Goc8A8iVU" target="_blank" rel="noopener noreferrer">👔 UNITED ARROWS green label B1 <span class="mall-chip">岡山一番街</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=BEAMS%20%E5%B2%A1%E5%B1%B1&query_place_id=ChIJeQxQzDUGVDURpAQwR1KF85I" target="_blank" rel="noopener noreferrer">👕 BEAMS 岡山 <span class="map-pin">📍</span></a>
             </div>
           </div>
         </div>
@@ -698,22 +751,26 @@
         <div class="day-body">
           <div class="step">
             <span class="step-badge">上午</span>
-            <div class="step-content">退房搭新幹線至姬路（行李寄放車站），在平坦的<strong>姬路城三之丸廣場</strong>與雪白名城合影（免爬陡梯、最省腳力！）。</div>
+            <div class="step-content">退房（10:00 前）搭新幹線至姬路（行李寄放車站），於<strong>姬路城三之丸廣場</strong>與雪白名城合影。</div>
           </div>
           <div class="step">
             <span class="step-badge">下午</span>
-            <div class="step-content">搭車入住<strong>神戶三宮大和Roynet飯店 PREMIER</strong>，先回房間午休。</div>
+            <div class="step-content">搭車入住<strong>神戶三宮大和Roynet飯店 PREMIER</strong>，逛三宮中心街與 CLEFY三宮。</div>
           </div>
           <div class="tea-box">
             <span class="tea-title">🍰 特色午茶＆宵夜蛋糕</span><br />
-            三宮老字號<strong>宇治園</strong>或<strong>文の助茶屋</strong>吃抹茶蕨餅；晚上外帶超人氣 <strong>HARBS 水果千層蛋糕</strong>回飯店享用！
+            三宮地下街老字號<strong>宇治園 喫茶去（7番街）</strong>或大丸 8F <strong>文の助茶屋</strong>吃抹茶蕨餅；晚上外帶超人氣 <strong>HARBS 水果千層蛋糕</strong>回飯店享用！
           </div>
           <div class="shop-box">
             <span class="shop-title">🎯 三宮商圈待逛清單</span>
             <div class="shop-pills">
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=HARBS%20%E7%A5%9E%E6%88%B6Clefy%E4%B8%89%E5%AE%AE%E5%BA%97&query_place_id=ChIJAQDAEfuOAGARUmhGBp0ZhdE" target="_blank" rel="noopener noreferrer">🍰 HARBS 1F <span class="mall-chip">CLEFY三宮</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Disney%20Store%20Sannomiya%20Clefy&query_place_id=ChIJQxLsEfuOAGARLVeA6tuw64g" target="_blank" rel="noopener noreferrer">🎀 Disney Store 5F <span class="mall-chip">CLEFY三宮</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=BEAMS%20%E7%A5%9E%E6%88%B6&query_place_id=ChIJkWIuEvuOAGARd7u-q6HJjBE" target="_blank" rel="noopener noreferrer">👕 BEAMS 神戶 B1F-1F <span class="mall-chip">CLEFY三宮</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Sanrio%20Gift%20Gate%20Kobe%20Sannomiya&query_place_id=ChIJ1e3OrXGPAGAR_R2MApVcevo" target="_blank" rel="noopener noreferrer">🐱 Sanrio Gift Gate <span class="mall-chip">神戶三宮中心街</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Kiddy%20Land%20Sannomiya&query_place_id=ChIJ22mcN5-PAGARYnKiaSqjqM4" target="_blank" rel="noopener noreferrer">🧸 KIDDY LAND 1F-2F <span class="mall-chip">神戶三宮中心街</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Kobe%20Sannomiya%20Center%20Gai%20Shopping%20Street&query_place_id=ChIJaVjGIvuOAGARwft1z2jr7y8" target="_blank" rel="noopener noreferrer">💊 藥妝店群（松本清/大國/OS Drug） <span class="mall-chip">神戶三宮中心街</span> <span class="map-pin">📍</span></a>
               <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E5%94%90%E5%90%89%E8%A8%B6%E5%BE%B7%20%E4%B8%89%E5%AE%AE%E5%BA%97&query_place_id=ChIJ93y3B-OOAGARmMt4AuOIARU" target="_blank" rel="noopener noreferrer">🐧 唐吉訶德 Donki 三宮店 <span class="map-pin">📍</span></a>
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Kobe%20Sannomiya%20Center%20Gai%20Shopping%20Street&query_place_id=ChIJaVjGIvuOAGARwft1z2jr7y8" target="_blank" rel="noopener noreferrer">💊 三宮中心街藥妝（松本清/大國/OS Drug） <span class="map-pin">📍</span></a>
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=HARBS%20%E7%A5%9E%E6%88%B6Clefy%E4%B8%89%E5%AE%AE%E5%BA%97&query_place_id=ChIJAQDAEfuOAGARUmhGBp0ZhdE" target="_blank" rel="noopener noreferrer">🍰 HARBS（CLEFY 1F / 大丸 3F） <span class="map-pin">📍</span></a>
             </div>
           </div>
         </div>
@@ -744,9 +801,11 @@
           <div class="shop-box">
             <span class="shop-title">🎯 最後補貨待逛清單</span>
             <div class="shop-pills">
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Kobe%20Sannomiya%20Center%20Gai%20Shopping%20Street&query_place_id=ChIJaVjGIvuOAGARwft1z2jr7y8" target="_blank" rel="noopener noreferrer">💊 三宮中心街藥妝（滿¥5,000退稅） <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Mint%E7%A5%9E%E6%88%B6&query_place_id=ChIJIzQdV-WOAGARaVosbuj0GNw" target="_blank" rel="noopener noreferrer">🍰 HARBS 2F / UNITED ARROWS 4F <span class="mall-chip">Mint神戶</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%88%B6%E8%87%A8%E6%B5%B7%E6%A8%82%E5%9C%92%20umie&query_place_id=ChIJuzTLRwePAGARTAkpdj5blxU" target="_blank" rel="noopener noreferrer">👕 RAGEBLUE <span class="mall-chip">神戶臨海樂園 umie</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=BEAMS%20%E7%A5%9E%E6%88%B6&query_place_id=ChIJkWIuEvuOAGARd7u-q6HJjBE" target="_blank" rel="noopener noreferrer">👟 BEAMS 神戶 B1F-1F <span class="mall-chip">CLEFY三宮</span> <span class="map-pin">📍</span></a>
+              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Kobe%20Sannomiya%20Center%20Gai%20Shopping%20Street&query_place_id=ChIJaVjGIvuOAGARwft1z2jr7y8" target="_blank" rel="noopener noreferrer">💊 藥妝店群（滿¥5,000退稅） <span class="mall-chip">神戶三宮中心街</span> <span class="map-pin">📍</span></a>
               <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=%E5%94%90%E5%90%89%E8%A8%B6%E5%BE%B7%20%E4%B8%89%E5%AE%AE%E5%BA%97&query_place_id=ChIJ93y3B-OOAGARmMt4AuOIARU" target="_blank" rel="noopener noreferrer">🐧 Donki 三宮店零食補貨 <span class="map-pin">📍</span></a>
-              <a class="shop-pill" href="https://www.google.com/maps/search/?api=1&query=Mint%E7%A5%9E%E6%88%B6&query_place_id=ChIJIzQdV-WOAGARaVosbuj0GNw" target="_blank" rel="noopener noreferrer">🍰 HARBS Mint神戶 2F <span class="map-pin">📍</span></a>
             </div>
           </div>
         </div>
@@ -768,19 +827,20 @@
           </div>
           <div class="step">
             <span class="step-badge">下午</span>
-            <div class="step-content"><strong>13:15 星宇航空起飛 ➔ 15:30 返抵高雄小港</strong>，天還沒黑就回到家囉！</div>
+            <div class="step-content"><strong>13:15 星宇航空 JX361 起飛 ➔ 15:30 返抵高雄小港</strong>，天還沒黑就回到家囉！</div>
           </div>
         </div>
       </article>
     </section>
 
+
     <!-- 貼心小提醒 -->
     <section id="sec-tips" class="card">
       <h2 class="sec-title"><span class="sec-icon bg-green">💡</span> 家族出遊貼心小提醒</h2>
       <ul class="tips-list">
-        <li>👟 <strong>輕鬆步調</strong>：每天上午只排 1 個主景點，下午都在室內商場或茶屋吹冷氣吃甜點，不用怕走到腳痠。</li>
         <li>🧥 <strong>4 月中旬穿搭</strong>：白天天氣約 16°C～22°C 很舒服，早晚微涼，建議洋蔥式穿搭帶件防風薄外套。</li>
-        <li>🛂 <strong>隨身必帶</strong>：護照正本（藥妝、BIC CAMERA、Donki 辦理免稅必備）與好走的球鞋。</li>
+        <li>🛂 <strong>隨身必帶</strong>：護照正本（多數商場滿 ¥5,500 含稅可辦免稅）與好走的球鞋。</li>
+        <li>⏰ <strong>退房留意</strong>：Day 4 和奏Kurashiki 退房時間為上午 <strong>10:00 前</strong>（無寄放行李），退房後直接帶行李往姬路站寄放。</li>
       </ul>
     </section>
 
@@ -791,7 +851,7 @@
     </div>
 
     <footer>
-      2027 倉敷・岡山・神戶 6日家族旅行小手冊｜祝大家玩得開心 🍑✨
+      2027 倉敷・岡山・神戶 6日家族旅行小手冊｜🍑✨
     </footer>
   </div>
 
@@ -806,16 +866,16 @@
 ・回程 4/21（三）星宇 JX361｜13:15 神戶(2航廈) ➔ 15:30 高雄
 
 🏨 已確認住宿（只換1次飯店）
-・4/16–19（3晚）：和奏Kurashiki（倉敷站步行4分，2間公寓套房）
-・4/19–21（2晚）：神戶三宮大和Roynet飯店 PREMIER（2間禁菸房）
+・4/16–19（3晚）：和奏Kurashiki（倉敷站步行4分，2間公寓套房，10:00前退房）
+・4/19–21（2晚）：神戶三宮大和Roynet飯店 PREMIER（豪華特大雙人床房＋中等雙床房）
 
-🗓️ 每日輕鬆行程
-・Day 1（4/16 五）：抵達岡山機場 ➔ 搭車至倉敷入住和奏Kurashiki、Ario 吃晚餐（松本清）
-・Day 2（4/17 六）：倉敷美觀遊船、阿智神社賞紫藤花、拉拉熊單寧屋 ➔ 下午倉敷 Outlet 喝抹茶午茶
-・Day 3（4/18 日）：岡山城（有電梯）➔ 下午永旺夢樂城吹冷氣＆抹茶烤團子午茶（BIC CAMERA、Donki、藥妝店集中採買）
-・Day 4（4/19 一）：姬路城三之丸廣場合影 ➔ 入住神戶三宮 ➔ 三宮中心街藥妝＆Donki ➔ 晚上外帶 HARBS 蛋糕
-・Day 5（4/20 二）：魚住住吉神社賞紫藤（或湊川神社）➔ 神戶港／三宮水果塔午茶 ➔ 第二晚外帶 HARBS 蛋糕
-・Day 6（4/21 三）：悠閒早餐 ➔ 搭單軌去神戶機場 ➔ 15:30 平安回到高雄小港！`;
+🗓️ 每日行程
+・Day 1（4/16 五）：抵達岡山機場 ➔ 搭巴士至倉敷入住和奏Kurashiki、Ario 美食街晚餐（松本清）
+・Day 2（4/17 六）：倉敷美觀遊船（9點觀光案內所預約）、阿智神社賞紫藤、拉拉熊單寧屋、橘香堂 ➔ 下午三井 OUTLET 倉敷（Clarks）
+・Day 3（4/18 日）：岡山城（有電梯）➔ 下午永旺夢樂城（抹茶起司蛋糕、烤團子、RAGEBLUE/Disney/Sanrio）＆站前商圈（BIC CAMERA、Donki、UNITED ARROWS、BEAMS）
+・Day 4（4/19 一）：姬路城三之丸廣場合影 ➔ 入住神戶三宮 ➔ CLEFY三宮（HARBS/Disney/BEAMS）＆三宮中心街（Sanrio/KIDDY LAND/藥妝/Donki）
+・Day 5（4/20 二）：魚住住吉神社賞紫藤（或湊川神社）➔ 神戶港塔＆美利堅公園／三宮水果塔午茶（註：MOSAIC 2027整修）➔ Mint神戶（HARBS/UNITED ARROWS）＆最後補貨
+・Day 6（4/21 三）：悠閒早餐 ➔ 10:45 搭單軌去神戶機場第2航廈 ➔ 15:30 平安回到高雄小港！`;
 
     document.getElementById("copyLineBtn").addEventListener("click", async () => {
       try {
